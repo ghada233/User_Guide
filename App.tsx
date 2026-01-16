@@ -35,7 +35,7 @@ const App: React.FC = () => {
       link: "https://qm.edu.sa/",
       action: "اضغط على زر 'التسجيل اضغط هنا' في الواجهة الرئيسية للبدء.",
       icon: <Home className="w-6 h-6" />,
-      image: "img/img1.png"
+      image: "https://drive.google.com/file/d/1pN2kax7r8N8BBDI5O5baJPn-Jf7uQJGb/view?usp=sharing"
     },
     {
       title: "صفحة تسجيل الدخول",
@@ -43,63 +43,63 @@ const App: React.FC = () => {
       link: "https://reg.qm.edu.sa/Minton/Account/Login",
       action: "أدخل بياناتك إذا كان لديك حساب مسبق، أو اضغط على 'تسجيل حساب جديد'.",
       icon: <UserPlus className="w-6 h-6" />,
-      image: "img/img2.png"
+      image: "https://drive.google.com/file/d/1pTXbGyea-3etoK8gpKLVMwN_3D24xk71/view?usp=sharing"
     },
     {
       title: "إنشاء حساب جديد",
       description: "تعبئة البيانات الأساسية المطلوبة للمستخدمين الجدد.",
       action: "أدخل الاسم الرباعي، الجنسية، الجنس، تاريخ الميلاد، البريد الإلكتروني وكلمة المرور بدقة.",
       icon: <FileText className="w-6 h-6" />,
-      image: "img/img3.png"
+      image: "https://drive.google.com/file/d/1h3QOPm2uiq3XLGFceNcBulc20VoZQgV6/view?usp=sharing"
     },
     {
       title: "تفعيل الحساب",
       description: "تحقق من وصول رسالة التفعيل إلى بريدك الإلكتروني.",
       action: "افتح بريدك الوارد، وفي حال لم تجد الرسالة ابحث في البريد المزعج (Spam).",
       icon: <Mail className="w-6 h-6" />,
-      image: "img/img4.png"
+      image: "https://drive.google.com/file/d/1taUQ5hRelnUKthDWzY6i22AOHNeASXkU/view?usp=sharing"
     },
     {
       title: "نجاح التفعيل",
       description: "الآن أصبح حسابك جاهزاً للاستخدام الفعلي.",
       action: "بعد الضغط على رابط البريد، ستفتح صفحة تؤكد نجاح التفعيل، اضغط 'دخول'.",
       icon: <CheckCircle2 className="w-6 h-6" />,
-      image: "img/img5.png"
+      image: "https://drive.google.com/file/d/1aMVBiwpx9-zOLWquoLA2r2pP2i2KsMZ3/view?usp=sharing"
     },
     {
       title: "الصفحة الرئيسية",
       description: "هذه هي واجهتك الشخصية في نظام الحلقات.",
       action: "في حال كنت مستخدماً جديداً، ستجد خيار 'انضمام لحلقة' متاحاً في القائمة.",
       icon: <Layout className="w-6 h-6" />,
-      image: "img/img6.png"
+      image: "https://drive.google.com/file/d/1y56x2tVpOSve-MfNEUoX1Q_c6QO0uq2r/view?usp=sharing"
     },
     {
       title: "تحديد المسار",
       description: "اختر نوع التعليم الذي يناسب ظروفك.",
       action: "حدد 'التعليم الحضوري' للدراسة داخل المسجد، أو 'عن بعد' للدراسة إلكترونياً.",
       icon: <Users className="w-6 h-6" />,
-      image: "img/img6.png"
+      image: "https://drive.google.com/file/d/1SFsCl9MU0m1Me8T2LvUOgMLAu5qrQdv7/view?usp=sharing"
     },
     {
       title: "التعليم الحضوري",
       description: "إجراءات الانضمام للحلقات الحضورية.",
       action: "يتطلب هذا المسار إدخال بيانات الهوية/ الإقامة وغيرها وحفظ البيانات للتقديم.",
       icon: <Info className="w-6 h-6" />,
-      image: "img/img7.png"
+      image: "https://drive.google.com/file/d/1TGgqIk6hregZPsapdg78IVK3JsbHHdAV/view?usp=sharing"
     },
     {
       title: "تخصيص الدراسة",
       description: "تحديد تفاصيل الحلقة (عن بعد).",
       action: "املأ نموذج التقديم باختيار المسار التعليمي والفترة المطلوبة.",
       icon: <Globe className="w-6 h-6" />,
-      image: "img/img8.png"
+      image: "https://drive.google.com/file/d/1pqqrQky4XljruOgc-HBBYQTKzukSeH5V/view?usp=sharing"
     },
     {
       title: "اكتمال الطلب",
       description: "ظهور الحلقة للطالب.",
       action: "سيتم تحويلك لبطاقة الحلقة الإلكترونية التي تحتوي على كافة تفاصيل الحلقة ونوعها.",
       icon: <CheckCircle2 className="w-6 h-6" />,
-      image: "img/img9.png"
+      image: "https://drive.google.com/file/d/1ehVkcWS6thywygXwrqitZTiOO3l9PGD8/view?usp=sharing"
     }
   ], []);
 
