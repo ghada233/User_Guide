@@ -20,13 +20,15 @@ import {
   Clock, 
   ExternalLink, 
   Sparkles,
-  HelpCircle
+  HelpCircle,
+  ImageOff
 } from 'lucide-react';
 
 const App: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState('الفجر');
+  const [imgError, setImgError] = useState<Record<number, boolean>>({});
 
   const steps = useMemo(() => [
     {
@@ -35,7 +37,7 @@ const App: React.FC = () => {
       link: "https://qm.edu.sa/",
       action: "اضغط على زر 'التسجيل اضغط هنا' في الواجهة الرئيسية للبدء.",
       icon: <Home className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1pN2kax7r8N8BBDI5O5baJPn-Jf7uQJGb/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1pN2kax7r8N8BBDI5O5baJPn-Jf7uQJGb"
     },
     {
       title: "صفحة تسجيل الدخول",
@@ -43,63 +45,63 @@ const App: React.FC = () => {
       link: "https://reg.qm.edu.sa/Minton/Account/Login",
       action: "أدخل بياناتك إذا كان لديك حساب مسبق، أو اضغط على 'تسجيل حساب جديد'.",
       icon: <UserPlus className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1pTXbGyea-3etoK8gpKLVMwN_3D24xk71/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1pTXbGyea-3etoK8gpKLVMwN_3D24xk71"
     },
     {
       title: "إنشاء حساب جديد",
       description: "تعبئة البيانات الأساسية المطلوبة للمستخدمين الجدد.",
       action: "أدخل الاسم الرباعي، الجنسية، الجنس، تاريخ الميلاد، البريد الإلكتروني وكلمة المرور بدقة.",
       icon: <FileText className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1h3QOPm2uiq3XLGFceNcBulc20VoZQgV6/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1h3QOPm2uiq3XLGFceNcBulc20VoZQgV6"
     },
     {
       title: "تفعيل الحساب",
       description: "تحقق من وصول رسالة التفعيل إلى بريدك الإلكتروني.",
       action: "افتح بريدك الوارد، وفي حال لم تجد الرسالة ابحث في البريد المزعج (Spam).",
       icon: <Mail className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1taUQ5hRelnUKthDWzY6i22AOHNeASXkU/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1taUQ5hRelnUKthDWzY6i22AOHNeASXkU"
     },
     {
       title: "نجاح التفعيل",
       description: "الآن أصبح حسابك جاهزاً للاستخدام الفعلي.",
       action: "بعد الضغط على رابط البريد، ستفتح صفحة تؤكد نجاح التفعيل، اضغط 'دخول'.",
       icon: <CheckCircle2 className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1aMVBiwpx9-zOLWquoLA2r2pP2i2KsMZ3/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1aMVBiwpx9-zOLWquoLA2r2pP2i2KsMZ3"
     },
     {
       title: "الصفحة الرئيسية",
       description: "هذه هي واجهتك الشخصية في نظام الحلقات.",
       action: "في حال كنت مستخدماً جديداً، ستجد خيار 'انضمام لحلقة' متاحاً في القائمة.",
       icon: <Layout className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1y56x2tVpOSve-MfNEUoX1Q_c6QO0uq2r/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1y56x2tVpOSve-MfNEUoX1Q_c6QO0uq2r"
     },
     {
       title: "تحديد المسار",
       description: "اختر نوع التعليم الذي يناسب ظروفك.",
       action: "حدد 'التعليم الحضوري' للدراسة داخل المسجد، أو 'عن بعد' للدراسة إلكترونياً.",
       icon: <Users className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1SFsCl9MU0m1Me8T2LvUOgMLAu5qrQdv7/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1SFsCl9MU0m1Me8T2LvUOgMLAu5qrQdv7"
     },
     {
       title: "التعليم الحضوري",
       description: "إجراءات الانضمام للحلقات الحضورية.",
       action: "يتطلب هذا المسار إدخال بيانات الهوية/ الإقامة وغيرها وحفظ البيانات للتقديم.",
       icon: <Info className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1TGgqIk6hregZPsapdg78IVK3JsbHHdAV/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1TGgqIk6hregZPsapdg78IVK3JsbHHdAV"
     },
     {
       title: "تخصيص الدراسة",
       description: "تحديد تفاصيل الحلقة (عن بعد).",
       action: "املأ نموذج التقديم باختيار المسار التعليمي والفترة المطلوبة.",
       icon: <Globe className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1pqqrQky4XljruOgc-HBBYQTKzukSeH5V/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1pqqrQky4XljruOgc-HBBYQTKzukSeH5V"
     },
     {
       title: "اكتمال الطلب",
       description: "ظهور الحلقة للطالب.",
       action: "سيتم تحويلك لبطاقة الحلقة الإلكترونية التي تحتوي على كافة تفاصيل الحلقة ونوعها.",
       icon: <CheckCircle2 className="w-6 h-6" />,
-      image: "https://drive.google.com/file/d/1ehVkcWS6thywygXwrqitZTiOO3l9PGD8/view?usp=sharing"
+      image: "https://drive.google.com/uc?export=view&id=1ehVkcWS6thywygXwrqitZTiOO3l9PGD8"
     }
   ], []);
 
@@ -121,6 +123,10 @@ const App: React.FC = () => {
     const timer = setTimeout(() => setIsAnimating(false), 500);
     return () => clearTimeout(timer);
   }, [currentStep]);
+
+  const handleImageError = (index: number) => {
+    setImgError(prev => ({ ...prev, [index]: true }));
+  };
 
   const FormField: React.FC<{ label: string; icon: React.ReactNode; children: React.ReactNode; fullWidth?: boolean }> = ({ label, icon, children, fullWidth }) => (
     <div className={`space-y-4 group transition-all duration-300 ${fullWidth ? 'md:col-span-2' : ''}`}>
@@ -348,28 +354,39 @@ const App: React.FC = () => {
                  </div>
                  معاينة توضيحية
                </h4>
-               <div className="rounded-[2rem] overflow-hidden border border-slate-100 bg-slate-50 shadow-inner group-hover:shadow-lg transition-all duration-500 min-h-[200px] flex items-center justify-center relative">
-                 <img 
-                    key={currentStep}
-                    src={steps[currentStep].image} 
-                    alt={`خطوة ${currentStep + 1}`}
-                    onError={(e) => {
-                       e.currentTarget.style.display = 'none';
-                       e.currentTarget.parentElement!.innerHTML = '<div class="p-8 text-slate-400 text-center font-bold">جاري تحميل صورة المعاينة...<br/><small>(تأكد من وجود مجلد img وصورك فيه)</small></div>';
-                    }}
-                    className={`w-full h-auto object-cover transition-all duration-700 ${isAnimating ? 'scale-110 blur-sm' : 'scale-100 hover:scale-105'}`}
-                 />
+               <div className="rounded-[2rem] overflow-hidden border border-slate-100 bg-slate-50 shadow-inner group-hover:shadow-lg transition-all duration-500 min-h-[300px] flex items-center justify-center relative bg-white">
+                 {!imgError[currentStep] ? (
+                   <img 
+                      key={currentStep}
+                      src={steps[currentStep].image} 
+                      alt={`خطوة ${currentStep + 1}`}
+                      onError={() => handleImageError(currentStep)}
+                      className={`w-full h-auto max-h-[400px] object-contain transition-all duration-700 ${isAnimating ? 'scale-110 blur-sm' : 'scale-100 hover:scale-105'}`}
+                   />
+                 ) : (
+                   <div className="flex flex-col items-center justify-center p-12 text-slate-300 text-center space-y-4">
+                     <div className="p-6 bg-slate-50 rounded-full">
+                       <ImageOff size={48} className="text-slate-200" />
+                     </div>
+                     <div className="space-y-2">
+                       <p className="font-bold text-slate-400">صورة الخطوة غير متوفرة</p>
+                       <p className="text-xs text-slate-400 leading-relaxed max-w-[200px]">
+                         يرجى التأكد من استقرار اتصال الإنترنت أو صحة روابط الصور المرفوعة.
+                       </p>
+                     </div>
+                   </div>
+                 )}
                </div>
                <div className="mt-4 flex justify-center text-xs text-slate-400 font-bold italic">
-                 * الصورة للمعاينة التقريبية من النظام
+                 * معاينة من واجهة النظام الرسمية
                </div>
             </div>
 
             <div className="bg-gradient-to-br from-[#004d32] to-[#006442] p-8 rounded-[2.5rem] text-white shadow-xl relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
-               <h4 className="font-black text-xl mb-4">هل تواجه صعوبات؟</h4>
+               <h4 className="font-black text-xl mb-4">نصيحة تقنية</h4>
                <p className="text-sm text-green-50 opacity-90 leading-relaxed font-medium">
-                 نحن هنا لخدمتكم، لا تتردد في استخدام أيقونة المساعدة العائمة في أسفل الصفحة للتحدث مع فريق الدعم.
+                 في حال واجهت شاشة بيضاء أو لم تظهر الصور، يرجى تحديث الصفحة (Refresh) أو التأكد من استقرار اتصال الإنترنت لديك.
                </p>
             </div>
           </div>
