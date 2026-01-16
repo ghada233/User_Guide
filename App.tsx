@@ -23,11 +23,6 @@ import {
   HelpCircle
 } from 'lucide-react';
 
-// Theme Colors
-const PRIMARY_GREEN = '#004d32';
-const SECONDARY_GREEN = '#006442';
-const ACCENT_GOLD = '#b4975a';
-
 const App: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -40,7 +35,7 @@ const App: React.FC = () => {
       link: "https://qm.edu.sa/",
       action: "اضغط على زر 'التسجيل اضغط هنا' في الواجهة الرئيسية للبدء.",
       icon: <Home className="w-6 h-6" />,
-      image: "img\img1.png"
+      image: "img/img1.png"
     },
     {
       title: "صفحة تسجيل الدخول",
@@ -48,63 +43,63 @@ const App: React.FC = () => {
       link: "https://reg.qm.edu.sa/Minton/Account/Login",
       action: "أدخل بياناتك إذا كان لديك حساب مسبق، أو اضغط على 'تسجيل حساب جديد'.",
       icon: <UserPlus className="w-6 h-6" />,
-      image: "img\img2.png"
+      image: "img/img2.png"
     },
     {
       title: "إنشاء حساب جديد",
       description: "تعبئة البيانات الأساسية المطلوبة للمستخدمين الجدد.",
-      action: "أدخل الاسم الرباعي، الجنسية ،الجنس، تاريخ الميلاد، البريد الإلكتروني وكلمة المرور بدقة.",
+      action: "أدخل الاسم الرباعي، الجنسية، الجنس، تاريخ الميلاد، البريد الإلكتروني وكلمة المرور بدقة.",
       icon: <FileText className="w-6 h-6" />,
-      image: "img\img3.png"
+      image: "img/img3.png"
     },
     {
       title: "تفعيل الحساب",
       description: "تحقق من وصول رسالة التفعيل إلى بريدك الإلكتروني.",
       action: "افتح بريدك الوارد، وفي حال لم تجد الرسالة ابحث في البريد المزعج (Spam).",
       icon: <Mail className="w-6 h-6" />,
-      image: "img\img4.png"
+      image: "img/img4.png"
     },
     {
       title: "نجاح التفعيل",
       description: "الآن أصبح حسابك جاهزاً للاستخدام الفعلي.",
       action: "بعد الضغط على رابط البريد، ستفتح صفحة تؤكد نجاح التفعيل، اضغط 'دخول'.",
       icon: <CheckCircle2 className="w-6 h-6" />,
-      image: "img\img5.png"
+      image: "img/img5.png"
     },
     {
-      title: "الصفحه الرئيسيه ",
+      title: "الصفحة الرئيسية",
       description: "هذه هي واجهتك الشخصية في نظام الحلقات.",
       action: "في حال كنت مستخدماً جديداً، ستجد خيار 'انضمام لحلقة' متاحاً في القائمة.",
       icon: <Layout className="w-6 h-6" />,
-      image: "img\img6.png"
+      image: "img/img6.png"
     },
     {
       title: "تحديد المسار",
       description: "اختر نوع التعليم الذي يناسب ظروفك.",
       action: "حدد 'التعليم الحضوري' للدراسة داخل المسجد، أو 'عن بعد' للدراسة إلكترونياً.",
       icon: <Users className="w-6 h-6" />,
-      image: "img\img6.png"
+      image: "img/img6.png"
     },
     {
       title: "التعليم الحضوري",
-      description: "إجراءات الانضمام للحلقات الحضوري.",
-      action: "يتطلب هذا المسار إدخال بيانات الهوية/ الاقامه وغيرها .",
+      description: "إجراءات الانضمام للحلقات الحضورية.",
+      action: "يتطلب هذا المسار إدخال بيانات الهوية/ الإقامة وغيرها وحفظ البيانات للتقديم.",
       icon: <Info className="w-6 h-6" />,
-      image: "img\img7.png"
+      image: "img/img7.png"
     },
     {
       title: "تخصيص الدراسة",
       description: "تحديد تفاصيل الحلقة (عن بعد).",
-      action: "املأ نموذج التقديم باختيار المسار التعليمي والفترة .",
+      action: "املأ نموذج التقديم باختيار المسار التعليمي والفترة المطلوبة.",
       icon: <Globe className="w-6 h-6" />,
-      image: "img\img8.png"
+      image: "img/img8.png"
     },
     {
       title: "اكتمال الطلب",
-      description: "ظهور الحلقة للطالب ",
-      action: "سيتم تحويلك  لبطاقة الحلقة إلكترونية تحتوي على كافة تفاصيل الحلقة.",
+      description: "ظهور الحلقة للطالب.",
+      action: "سيتم تحويلك لبطاقة الحلقة الإلكترونية التي تحتوي على كافة تفاصيل الحلقة ونوعها.",
       icon: <CheckCircle2 className="w-6 h-6" />,
-      image: "img\img9.png"
+      image: "img/img9.png"
     }
   ], []);
 
@@ -127,7 +122,6 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, [currentStep]);
 
-  // UI Helpers
   const FormField: React.FC<{ label: string; icon: React.ReactNode; children: React.ReactNode; fullWidth?: boolean }> = ({ label, icon, children, fullWidth }) => (
     <div className={`space-y-4 group transition-all duration-300 ${fullWidth ? 'md:col-span-2' : ''}`}>
       <label className="text-sm font-bold text-slate-700 flex items-center gap-3 transition-colors group-hover:text-[#006442]">
@@ -159,7 +153,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-sans overflow-x-hidden relative">
-      {/* Top Fixed Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 z-[60] bg-slate-100/50">
         <div 
           className="h-full bg-[#b4975a] transition-all duration-700 ease-out shadow-[0_0_10px_#b4975a]"
@@ -167,7 +160,6 @@ const App: React.FC = () => {
         />
       </div>
 
-      {/* Floating Help Button (FAB) */}
       <a 
         href="https://help.qm.edu.sa/" 
         target="_blank" 
@@ -182,7 +174,6 @@ const App: React.FC = () => {
         </div>
       </a>
 
-      {/* Modern Header */}
       <header className="bg-[#004d32] text-white shadow-xl relative z-50 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] opacity-10"></div>
         <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center relative z-10">
@@ -202,7 +193,6 @@ const App: React.FC = () => {
       </header>
 
       <main className="flex-grow max-w-6xl mx-auto w-full px-4 py-12">
-        {/* Animated Progress Tracker */}
         <div className="mb-12 glass p-8 rounded-[2rem] shadow-2xl border border-white/40 transition-all hover:shadow-green-900/5">
           <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
             <h2 className="text-xl font-extrabold text-slate-800 flex items-center gap-3">
@@ -257,7 +247,6 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Step Content */}
         <div className="grid lg:grid-cols-5 gap-10 pb-20">
           <div className="lg:col-span-3">
             <div 
@@ -359,20 +348,23 @@ const App: React.FC = () => {
                  </div>
                  معاينة توضيحية
                </h4>
-               <div className="rounded-[2rem] overflow-hidden border border-slate-100 bg-slate-50 shadow-inner group-hover:shadow-lg transition-all duration-500">
+               <div className="rounded-[2rem] overflow-hidden border border-slate-100 bg-slate-50 shadow-inner group-hover:shadow-lg transition-all duration-500 min-h-[200px] flex items-center justify-center relative">
                  <img 
                     key={currentStep}
                     src={steps[currentStep].image} 
-                    alt="Guide step preview" 
+                    alt={`خطوة ${currentStep + 1}`}
+                    onError={(e) => {
+                       e.currentTarget.style.display = 'none';
+                       e.currentTarget.parentElement!.innerHTML = '<div class="p-8 text-slate-400 text-center font-bold">جاري تحميل صورة المعاينة...<br/><small>(تأكد من وجود مجلد img وصورك فيه)</small></div>';
+                    }}
                     className={`w-full h-auto object-cover transition-all duration-700 ${isAnimating ? 'scale-110 blur-sm' : 'scale-100 hover:scale-105'}`}
                  />
                </div>
                <div className="mt-4 flex justify-center text-xs text-slate-400 font-bold italic">
-                 * الصورة للمعاينة التقريبية
+                 * الصورة للمعاينة التقريبية من النظام
                </div>
             </div>
 
-            {/* Support Message Box */}
             <div className="bg-gradient-to-br from-[#004d32] to-[#006442] p-8 rounded-[2.5rem] text-white shadow-xl relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
                <h4 className="font-black text-xl mb-4">هل تواجه صعوبات؟</h4>
@@ -384,7 +376,6 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      {/* Minimal Footer */}
       <footer className="bg-[#0b141e] text-[#718096] py-12 text-center text-base border-t border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
           <p className="font-medium tracking-wide">
